@@ -1,0 +1,37 @@
+<main class="landing main_page_container">
+  <div class="wrapper">
+
+    <h1 class="main_headline">
+      <p>Welcome</p>
+      <p>to<span class="additional_style_headline">Tutor<span class="additional_symbol">u</span>!</span></p>
+    </h1>
+    <p class="additional_text">Lorem ipsum dolor sit amet, consectetus incididunt ut labore et dolare magna aliqua.</p>
+
+    <div class="steps_account">
+      <div class="step_item">
+        <%= link_to new_user_registration_path, class: "create_account" do %>
+          <h3>Create Account</h3>
+          <p>Lorem ipsum color</p>
+          <p>sit amet, ipsum</p>
+        <% end %>
+      </div>
+
+      <div class="step_item">
+        <%= link_to new_user_session_path, class: 'sing_in' do %>
+          <h3>Sign In</h3>
+          <p>Lorem ipsum color</p>
+          <p>sit amet, ipsum</p>
+        <% end %>
+      </div>
+
+      <div class="step_item">
+        <%= link_to new_user_registration_path(type: 'Tutor'), class: "new_tutor" do %>
+          <h3>New Tutor</h3>
+          <p>Lorem ipsum color</p>
+          <p>sit amet, ipsum</p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</main>

@@ -1,0 +1,12 @@
+.home {
+  background-image: url("../images/dance_people.svg");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: cover;
+}
+
+@media screen and (max-width: 991px) {
+  .home {
+    background-size: contain;
+  }
+}

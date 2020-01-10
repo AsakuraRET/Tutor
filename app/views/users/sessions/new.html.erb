@@ -1,0 +1,45 @@
+<section class="features" id="features">
+  <section class="headlines">
+    <h1>Welcome Back!</h1>
+  </section>
+  <div class="sign_up shadow adaptive_sing_up">
+    <div class="head_form">
+      Sign In
+    </div>
+    <div class="my_data ">
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="new_reg">
+          <div class="left_col_reg adaptive_left_col_red">
+            <div class="data_reg">
+              <div class="text_reg">
+                <%= f.label :email %><br/>
+              </div>
+              <div class="len_reg">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Helen Brown" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="new_reg">
+          <div class="left_col_reg adaptive_left_col_red">
+            <div class="data_reg">
+              <div class="text_reg">
+                <%= f.label :password %><br/>
+              </div>
+              <div class="len_reg">
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "* * * * * *" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="new_reg">
+          <%= f.submit 'Next', class: 'go_reg' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<div class="logo">
+  <%= link_to root_path do %>
+    <img src="<%= asset_pack_path 'media/images/tutoru.svg' %>" alt="logo">
+  <% end %>
+</div>
+<nav>
+  <ul>
+    <li>
+      <%= link_to "Home", home_path, class: "#{active_link_by_controller_and_action 'application', 'home'}" %>
+    </li>
+    <li>
+      <%= link_to "Current Requests", current_request_path, class: "#{active_link_by_controller_and_action 'application', 'current_request'} ||
+                                                                    #{active_link_by_controller_and_action 'help_requests', 'show'}" %>
+    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to "Chats", chats_path(id: current_user.id), class: "#{active_link_by_controller_and_action 'chats'}" %>
+      </li>
+      <li>
+        <%= link_to "Account", account_path(id: current_user.id), class: "#{active_link_by_controller_and_action 'application', 'account'}" %>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to "Settings", settings_path, class: "#{active_link_by_controller_and_action 'application', 'settings'}" %>
+    </li>
+  </ul>
+</nav>
+
+<div class="phone-menu">
+  <ul class="list-menu">
+    <li>
+      <%= link_to "Home", home_path, class: "#{controller_name == 'application' && action_name == 'home' ? 'active' : ''}" %>
+    </li>
+    <li>
+      <%= link_to "Current Requests", current_request_path, class: "#{(controller_name == 'application' && action_name == 'current_request') || (controller_name == 'help_requests' && action_name == 'new') ? 'active' : ''}" %>
+    </li>
+    <% if current_user %>
+      <li>
+        <%= link_to "Chats", chats_path(id: current_user.id), class: "#{(controller_name == 'chats') ? 'active' : ''}" %>
+      </li>
+      <li>
+        <%= link_to "Account", account_path(id: current_user.id), class: "#{(controller_name == 'application' && action_name == 'account') ? 'active' : ''}" %>
+      </li>
+    <% end %>
+    <li>
+      <%= link_to "Settings", settings_path, class: "#{active_link_by_controller_and_action 'application', 'settings'}" %>
+    </li>
+  </ul>
+</div>
+
+<div class="burger-menu">
+  <span></span>
+</div>

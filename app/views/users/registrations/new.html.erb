@@ -1,0 +1,139 @@
+<section class="features" id="features">
+	<section class="headlines">
+	  <h1>Create Account</h1>
+	</section>
+	<div class="create_acc shadow">
+		<h2 class="head_form">Information</h2>
+		<div class="my_data ">
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			<%= render "devise/shared/error_messages", resource: resource %>
+			<%= f.hidden_field :type %>
+			<div class="left_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :Name %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :first_name, placeholder: "Write your name" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="right_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :last_name %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :last_name, placeholder: "Write your last name" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="left_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :Username %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :user_name, placeholder: "Write your username" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="right_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :age %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :age, placeholder: "Write your age" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="left_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :email %><br/>
+					</div>
+					<div class="len_reg">
+						<%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Write your email"%>
+					</div>
+				</div>
+			</div>
+
+			<div class="new_reg">
+				<div class="left_col_reg">
+					<div class="data_reg">
+						<div class="text_reg">
+							<%= f.label :address %><br/>
+						</div>
+						<div class="input">
+							<%= f.text_field :address, placeholder: "Write your address"%>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="right_col_reg">
+				<div class="data_reg">
+					<div class="re">
+						<%= f.label :Zip_Code %><br/>
+					</div>
+					<div class="field">
+						<%= f.number_field :zip_code, placeholder: "Write your zip code" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="left_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :school %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :school, placeholder: "Write your school" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="right_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :major %><br/>
+					</div>
+					<div class="input">
+						<%= f.text_field :major, placeholder: "Write your major" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="left_col_reg">
+				<div class="data_reg">
+					<div class="text_reg">
+						<%= f.label :password %>
+					</div>
+					<div class="input">
+						<%= f.password_field :password, autocomplete: "new-password", placeholder: "Write your password" %>
+					</div>
+				</div>
+			</div>
+
+			<div class="right_col_reg">
+				<div class="data_reg">
+					<div class="re">
+						<%= f.label :Re_enter_password %><br/>
+					</div>
+					<div class="input">
+						<%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Write your password" %>
+					</div>
+				</div>
+			</div>
+
+			<%= f.submit 'Next', class: 'go_reg' %>
+
+		<% end %>
+	</div>
+</div>
+</section>

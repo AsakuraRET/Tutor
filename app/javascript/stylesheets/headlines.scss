@@ -1,0 +1,67 @@
+.headlines {
+  margin: 100px auto;
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  &--for_help {
+    margin: 0px;
+    text-align: left;
+  }
+
+  &--without_offers {
+    margin: 0 0 100px 0;
+  }
+  &--your_offers {
+    margin: 50px auto;
+  }
+  &--for_your_card {
+    margin: 100px auto 50px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .headlines {
+    margin: 100px auto 50px;
+    
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .current_requests_account {
+    margin: 50px auto;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .headlines h1 {
+      font-size: 30px;
+  }
+  
+
+  .help_request_data {
+    flex-direction: column;
+
+    .help_request_inputs {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .headlines h1 {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 5px;
+  }
+
+  .help_request_data .help_request_inputs {
+    margin-left: 0;
+  }
+}
+

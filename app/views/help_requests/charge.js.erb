@@ -1,0 +1,8 @@
+<% if @success_message %>
+  document.querySelector('.payment_success').innerHTML = "<%= @success_message %>";
+  setTimeout(function() {
+    document.location.reload();
+  }, 3000);
+<% else %>
+  document.querySelector('.payment_errors').innerHTML = "<%= @unsuccess_message %>";
+<% end %>

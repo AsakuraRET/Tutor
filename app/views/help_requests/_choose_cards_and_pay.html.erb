@@ -1,0 +1,25 @@
+<div class="accept-offer-modal-window accept-offer-modal-window--payment">
+  <div class="modal-content modal-content--finish-payment">
+    <%= link_to (@help_request), {class: "button-close-modal"} do %>
+    <div class="close-container">
+      <div class="left-line"></div>
+      <div class="right-line"></div>
+      <label class="close">close</label>
+    </div>
+    <% end %>
+    <h2 class="modal-body">Please, choose your card:</h2>
+    <span class="payment_errors"></span>
+    <span class="payment_success"></span>
+    <section class="all-cards">
+      <% current_user.payment_sources.each do |payment_source| %>
+        <%= link_to(charge_help_request_path(stripe_id: payment_source.stripe_id, customer: current_user.stripe_id), {class: 'card-wrapper', method: :put, remote: true}) do %>
+          <%= render partial: "application/students_cards", locals: {payment_source: payment_source} %>
+        <% end %>
+      <% end %>
+    </section>
+    <button type="button" class="common_button common_button--hidden" id="toggle_cards">Add new card</button>
+    <section class="sign_up shadow payment_block modal-payment-block modal_payment_block_adaptive" id="hidden_payment_block">
+      <%= render 'payment_sources/add_new_card' %>
+    </section>
+  </div>
+</div>

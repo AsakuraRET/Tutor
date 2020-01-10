@@ -1,0 +1,158 @@
+.list--chat {
+  margin: 140px auto 100px;
+  width: 1100px;
+  padding: 20px;
+
+  .list_users {
+    list-style-type: none;
+  }
+
+  .chat_item {
+    margin: auto;
+    overflow-y: auto;
+    height: 56vh;
+    word-wrap: break-word;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      border-radius: 20px;
+      padding: 15px 20px;
+      margin: 10px 10px 10px auto;
+      border-bottom-right-radius: 0;
+      border-color: #EBFDFF;
+      background-color: #EBFDFF;
+      font-weight: 400;
+      font-size: 15px;
+
+      span:first-child {
+        font-size: 13px;
+        font-weight: bold;
+        color: #047ac9;
+        margin: 0 0 5px -5px;
+      }
+
+       span:last-child {
+         font-size: 9px;
+         font-style: italic;
+         margin: 0 0 0 auto;
+       }
+     }
+
+     .chat_gray_bg {
+       background-color: #f1f1f1;
+       margin: 10px auto 10px 10px;
+       border-bottom-left-radius: 0;
+       border-bottom-right-radius: 20px;
+     }
+   }
+
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .message_input {
+    position: relative;
+
+    .message_body {
+      border-color: rgba(155, 246, 255, .4);
+      border-radius: 55px;
+      resize: none;
+      padding: 15px 15px 15px 26px;
+      width: 100%;
+      min-height: 100px;
+      outline: 0;
+      box-sizing: border-box;
+      padding-right: 80px;
+    }
+
+    .actions {
+      border: none;
+      position: absolute;
+      top: 37px;
+      right: 40px;
+      background-color: transparent;
+    }
+
+    .actions input[type="submit"] {
+      background-image: url("../images/telegram.svg");
+      background-color: #fff;
+      border: none;
+      font-size: 0;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .list--chat {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .list--chat {
+    margin: 80px auto 50px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+
+    .chat_item {
+      height: 75%;
+      margin-bottom: 20px;
+
+      p {
+        width: 95%;
+        padding: 15px 15px;
+        font-size: 13px;
+        word-wrap: break-word;
+
+        span:first-child {
+          margin: 0 0 5px -5px;
+        }
+
+        span:last-child {
+          margin: 5px 0 0 auto;
+        }
+      }
+    }
+  }
+
+  .list--chat--message_input {
+      .actions {
+        input {
+          position: fixed;
+          bottom: 4px;
+          right: 75px;
+          z-index: 100;
+        }
+      }
+
+      .message_body {
+        min-height: 65px;
+        position: fixed;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        margin: 0 auto;
+        width: 90%;
+      }
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+  .list--chat .message_input .actions input {
+    right: 55px;
+  }
+}

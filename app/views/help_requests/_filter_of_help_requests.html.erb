@@ -1,0 +1,18 @@
+<div class="main_filter_block">
+  <%= form_with(url: search_help_requests_path, remote: true, class:"filter_form", id: "seach_request_form", method: 'GET') do |form| %>
+  <table class="filter_table">
+    <tr>
+      <td class="select_subject_column">
+        <%= form.select :subject_id_select, options_for_select(Subject.all.pluck(:name, :id)), {:include_blank => "Select Subject"}, class:"list_filter subject", id:"select_for_subject" %>
+        <%= form.hidden_field :subject_id %>
+      </td>
+      <td class="subjects_column">
+        <div class="selected_subjects_container" id="selected_subjects_container"></div>
+      </td>
+      <td class="select_time_column">
+        <%= form.select :direction, options_for_select([["By newest", "1"], ["By oldest", "0"]]), {}, class:"list_filter byNewest", id:"list_filter_by_time"%>
+      </td>
+    </tr>
+  </table>
+<% end %>
+</div>

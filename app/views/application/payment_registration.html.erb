@@ -1,0 +1,9 @@
+<div class="shadow shadow--for_payment">
+  <p>Registration was successfull!</p>
+  <p class="for_join">Now you can join to our stripe team</p>
+  <% unless current_user.stripe_id.present? %>
+    <%= link_to "Connect with Stripe",
+    "https://connect.stripe.com/express/oauth/authorize?client_id=ca_FWbyXacBXj87IdKViBl1BycLol5K0JOX", class:"common_button" %>
+  <% end %>
+  <%= link_to "Skip this step", root_path, class: "skip_stripe_registration" %>
+</div>

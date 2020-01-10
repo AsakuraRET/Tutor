@@ -1,0 +1,233 @@
+<main class="profile">
+  <section class="headlines">
+    <h1 class="headlines_account">
+      <%= @user.first_name %>
+      <%= @user.last_name %>
+    </h1>
+    <p class="profile_status"><%= @user.type %></p>
+    <div class="profile_photo">
+      <img class="user_logo" src=<%= asset_pack_path 'media/images/avatar-placeholder.png' %> />
+    </div>
+    <div class="social_networks">
+      <a class="social_links" href="#">
+        <img class="social_links_img" src=<%= asset_pack_path 'media/images/Skype.svg' %> />
+      </a>
+      <a class="social_links" href="#">
+        <img class="social_links_img" src=<%= asset_pack_path 'media/images/WhatsApp.svg' %> />
+      </a>
+      <a class="social_links" href="#">
+        <img class="social_links_img" src=<%= asset_pack_path 'media/images/Facebook.svg' %> />
+      </a>
+      <a class="social_links" href="#">
+        <img class="social_links_img" src=<%= asset_pack_path 'media/images/Google.svg' %> />
+      </a>
+    </div>
+  </section>
+  <section class="main_information">
+    <table class="information">
+      <thead>
+        <tr>
+          <th class="space_for_tittle" colspan="2">
+            <span class="tittle_table">
+              Information
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Name:</th>
+          <th><%= @user.first_name %></th>
+        </tr>
+        <tr>
+          <th>Last name:</th>
+          <th><%= @user.last_name %></th>
+        </tr>
+        <tr>
+          <th>Username:</th>
+          <th><%= @user.user_name %></th>
+        </tr>
+        <tr>
+          <th>Age:</th>
+          <th><%= @user.age %></th>
+        </tr>
+        <tr>
+          <th>Email:</th>
+          <th><%= @user.email %></th>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <th><%= @user.address %></th>
+        </tr>
+        <tr>
+          <th>Zip Code:</th>
+          <th><%= @user.zip_code %></th>
+        </tr>
+        <tr>
+          <th>School:</th>
+          <th><%= @user.school %></th>
+        </tr>
+        <tr>
+          <th>Major:</th>
+          <th><%= @user.major %></th>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <% if current_user.id == @user.id %>
+  <!-- Show payment buttons if users have stripe_id -->
+  <% unless current_user.stripe_id.present? %>
+  <% if current_user.student? %>
+  <%= link_to 'Create Payment Account', new_payment_source_path, class:"common_button create_payment_button" %>
+  <% else %>
+  <%= link_to "Connect with Stripe", "https://connect.stripe.com/express/oauth/authorize?client_id=ca_FWbyXacBXj87IdKViBl1BycLol5K0JOX", class:"common_button create_payment_button" %>
+  <% end %>
+  <% else %>
+  <!-- Student payment cards -->
+  <% if current_user.student? %>
+  <% if current_user.payment_sources.any? %>
+  <h2 class="headlines headlines--for_your_card">Your Cards</h2>
+  <span id="cards_errors" class="payment_errors payment_errors--delete_card_error"></span>
+  <% current_user.payment_sources.each do |payment_source| %>
+  <%= render partial: 'students_cards', locals: {payment_source: payment_source} %>
+  <% end %>
+  <% end %>
+  <%= link_to '+Add New Card', new_payment_source_path, class:"common_button create_payment_button" %>
+  <% else %>
+  <!-- Tutors balance info -->
+  <div class="block_payment_information">
+    <h2 class="chapter_payment_information">Payment Information</h2>
+    <div class="block_tutoru_information">
+      <p class="tutor_information_text">Tutor<span class="payment_information_leter">u</span></p>
+      <p>Stripe Partner</p>
+    </div>
+    <div class="your_balance">
+      <p>Your balance:
+        <span class="payment_balance_cash">$<%= number_with_precision(@balance, precision: 2) %></span>
+        <% if @error_balance %>
+        <span class="payment_errors"><%= @error_balance %></span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <% if @transactions %>
+  <h1 class="headlines">Latest payouts</h1>
+  <table class="list" cellspaceing="0">
+    <thead class="head_list">
+      <tr>
+        <th class="column">Date</th>
+        <th class="column ">Student</th>
+        <th class="column ">Description</th>
+        <th class="column ">TutorU's fees</th>
+        <th class="column ">Payout</th>
+        <th class="column ">Tips</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+      <tr class="row">
+        <td data-label="Date" class="column">
+          <%= transaction[:date] %>
+        </td>
+        <td data-label="Student" class="column">
+          <%= transaction[:first_name] %>
+          <%= transaction[:last_name] %>
+        </td>
+        <td data-label="Description" class="column">
+          <%= transaction[:description] %>
+        </td>
+        <td data-label="TutorU's fees" class="column offer_state--red ">
+          -$<%= number_with_precision(transaction[:fee], precision: 2) %>
+        </td>
+        <td data-label="Payout" class="column offer_state ">
+          +$<%= number_with_precision(transaction[:amount], precision: 2) %>
+        </td>
+        <td data-label="Tips" class="column offer_state--tips ">
+          <% if transaction[:tips] %>
+          +$<%= number_with_precision(transaction[:tips], precision: 2) %>
+          <% else %>
+          <%= '—' %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% end %>
+  <!-- Tutor offers -->
+  <% if @offers.any? %>
+  <section class="headlines">
+    <h1 class="headlines">Your offers</h1>
+  </section>
+  <table class="list" cellspaceing="0">
+    <thead class="head_list">
+      <tr class="row">
+        <th class="column">Help request</th>
+        <th class="column">Email</th>
+        <th class="column">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @offers.each do |offer| %>
+      <tr class="row">
+        <td data-label="Help request" class="column last">
+          <%= link_to offer.help_request.description, offer.help_request %>
+        </td>
+        <td data-label="Email" class="column">
+          <% if offer.accepted? %>
+          <%= link_to offer.help_request.student.email, account_path(id: offer.help_request.student_id) %>
+          <% else %>
+          <%= offer.help_request.student.email %>
+          <% end %>
+        </td>
+        <td data-label="Status" class="column offer_state">
+          <%= offer.state.capitalize %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <section class="headlines">
+    <h1>You don't have offers yet</h1>
+  </section>
+  <% end %>
+  <!-- Tutor help requests -->
+  <% if @help_requests.any? %>
+  <section class="headlines">
+    <h1>Your help requests</h1>
+  </section>
+  <table class="list" cellspaceing="0">
+    <thead class="head_list">
+      <tr>
+        <th class="column">Description</th>
+        <th class="column">Email</th>
+        <th class="column">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @help_requests.each do |help_request| %>
+      <tr class="row">
+        <td data-label="Description" class="column last">
+          <%= link_to help_request.description, help_request %>
+        </td>
+        <td data-label="Email" class="column">
+          <%= link_to help_request.student.email, account_path(id: help_request.student_id) %>
+        </td>
+        <td data-label="Status" class="column offer_state <%= red_if_request_finished(help_request.state) %>">
+          <%= help_request.state.capitalize.tr('_', ' ') %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <section class="headlines headlines--your_offers">
+    <h1>You don't have help requests yet</h1>
+  </section>
+  <% end %>
+  <% end %>
+  <% end %>
+  <% end %>
+</main>

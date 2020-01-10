@@ -1,0 +1,43 @@
+<section class="headlines"><h1>All users</h1></section>
+<table class="list admin-list">
+  <thead class="head_list">
+    <tr>
+      <th class="column--admin">№</th>
+      <th class="column--admin">First/Last name</th>
+      <th class="column--admin">Status</th>
+      <th class="column--admin">Email</th>
+      <th class="column--admin">Number of requests in pending</th>
+      <th class="column--admin">Number of requests in progress</th>
+      <th class="column--admin">Finished help requests</th>
+      <th class="column--admin">Subject</th>
+      <th class="column--admin">Created at</th>
+      <th class="column--admin">Updated at</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td class="column--admin"> </td>
+        <td class="column--admin">
+          <%= link_to admin_user_path(id: user.id) do %>
+            <%= user.first_name %> <%= user.last_name %>
+          <% end %>
+        </td>
+        <td class="column--admin"><%= user.type %></td>
+        <td class="column--admin"><%= user.email %></td>
+        <td class="column--admin"><%= user.help_requests.pending.count %></td>
+        <td class="column--admin"><%= user.help_requests.in_progress.count %></td>
+        <td class="column--admin"><%= user.help_requests.finished.count %></td>
+        <td class="column--admin"><%= user.major %></td>
+        <td class="column--admin"><%= user.created_at.strftime("%Y-%m-%d %I:%M %p") %></td>
+        <td class="column--admin"><%= user.updated_at.strftime("%Y-%m-%d %I:%M %p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="for_myClass">
+  <div class="for_img">
+    <img src="<%= asset_pack_path 'media/images/exel.svg' %>">
+  </div>
+  <%= link_to "Upload to CVS", admin_users_path(format: "xls"), class: "common_button common_button--for_admin" %>
+</div>

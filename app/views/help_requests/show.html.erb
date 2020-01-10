@@ -1,0 +1,96 @@
+<div class="show_request">
+  <section class="request_headline_img">
+    <%= link_to current_request_path do %>
+      <%= image_tag asset_pack_path 'media/images/arrow_left.svg', class: "arrow_left" %>
+    <% end %>
+    <section class="headlines headlines--for_help headlines_student_account current_requests_account">
+      <h1>Very Urgent, Help!!! <span class="current_requests_account_inner_chapter"><%= @help_request.subject.name %></span></h1>
+    </section>
+  </section>
+  <section class="container_user">
+    <div class="avatar_user"></div>
+    <div class="user_info">
+      <p>User:
+        <%= @help_request.student.first_name %>
+        <%= @help_request.student.last_name %>
+      </p>
+      <span><%= @help_request.created_at.strftime("%d %B, %Y") %></span>
+    </div>
+  </section>
+  <section class="help_request_data">
+    <div class="help_request_photo">
+      <p class="photo_title stydent_photo_title">A Screenshot of the Problem</p>
+      <div class="photo_file">
+        <div class="photo_file_picture" style="background-image: url(<%= problem_picture_default(@help_request) %>)"></div>
+      </div>
+    </div>
+    <div class="help_request_inputs">
+      <div class="help_request_form_field form_field">
+        <p class="field_title">
+          Subject:
+        </p>
+        <input value="<%= @help_request.subject.name %>" type="text" class="field_input" readonly>
+      </div>
+      <div class="help_request_form_field form_field">
+        <p class="field_title">
+          The Problems:
+        </p>
+        <textarea disabled class="field_input field_input_description"><%= @help_request.description %></textarea>
+      </div>
+      <div class="price">
+        <p>
+          Current Price:
+          <span><%= @help_request.help_request_price_or_offer_price %></span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <% if current_user.student? %>
+    <% if @help_request.state == "in_progress" %>
+      <%= link_to 'Finish and Pay', finish_help_request_help_request_path(@help_request), class: "common_button", remote: true %>
+    <% elsif @help_request.state == "finished" && !@help_request.tips %>
+      <h3 class="success_paid">Your help request has already paid!</h3>
+      <%= render "tips_form" %>
+    <% elsif @help_request.tips %>
+      <h3 class="success_paid">Thank you for your tips!</h3>
+      <h3 class="success_paid">Your help request has already paid!</h3>
+    <% elsif @help_request.state == "pending" %>
+      <% if @offers.any? %>
+        <table class="list" cellspaceing="0">
+          <thead class="head_list">
+            <tr>
+              <th class="column">Name</th>
+              <th class="column">Email</th>
+              <th class="column">New Price</th>
+              <th class="column">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @offers.each do |offer| %>
+              <tr class="row">
+                <td data-label="name" class="column"><%= offer.tutor.first_name %> <%= offer.tutor.last_name %></td>
+                <td data-label="email" class="column"><%= offer.tutor.email %></td>
+                <td data-label="new price" class="column">$<%= offer.new_price %></td>
+                <td data-label="actions" class="column"><%= link_to 'Accept', accept_offer_path(offer), class: "accept_tutor_button", remote: true  %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <section class="headlines headlines--without_offers">
+          <h1>You have no offers</h1>
+        </section>
+      <% end %>
+    <% end %>
+  <% else %>
+    <% if @help_request.state == "pending" %>
+      <section class="help_request_next_part actions">
+        <% unless current_user.offers.map{|o| o.help_request_id}.include?(@help_request.id) %>
+          <%= link_to 'New Offer', new_offer_path(help_request_id:@help_request.id), class: "common_button" %>
+        <% end %>
+        <%= link_to 'Help Now!', accept_help_request_path(@help_request), class: "common_button" %>
+      </section>
+    <% end %>
+  <% end %>
+</div>
+<div id="modal_placeholder"></div>

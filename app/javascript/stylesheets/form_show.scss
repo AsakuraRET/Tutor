@@ -1,0 +1,295 @@
+.show_request {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1110px;
+  margin: 0 auto;
+  z-index: 10;
+
+  .request_headline_img {
+    margin: 100px 0px 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container_user {
+    display: flex;
+    margin: 0px 0px 30px 0px;
+    justify-content: flex-start;
+    width: 100%;
+
+    .avatar_user {
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      background-image: url("../images/avatar-placeholder.png");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .user_info {
+      display: inline-block;
+      font-size: 38px;
+      font-weight: bold;
+      color: #279D59;
+      margin-left: 40px;
+
+      p {
+        font-size: 38px;
+        color: #279D59;
+        line-height: 42px;
+      }
+
+      span {
+        font-size: 20px;
+        color: #425479;
+      }
+    }
+  }
+
+  .help_request_data {
+    margin-bottom: 100px;
+
+    .field_input {
+      pointer-events: none;
+    }
+
+    .photo_title {
+      margin-bottom: 20px;
+    }
+
+    .stydent_photo_title {
+      margin-bottom: 2px;
+    }
+
+    .price {
+      margin-top: 150px;
+
+      p {
+        font-size: 30px;
+        color: #29344C;
+        text-align: right;
+      }
+
+      span {
+        color: #279D59;
+      }
+    }
+  }
+
+  .actions {
+    width: 100%;
+    text-align: right;
+    margin: 0px 0px 40px 0px;
+
+    .common_button {
+      &:last-child {
+        margin-left: 60px;
+      }
+    }
+  }
+}
+
+.accept_tutor_button {
+  background: #FFF;
+  border-radius: 25px;
+  color: #FF4970;
+  border-color: #FF7E67;
+  border-style: solid;
+  font-weight: bold;
+  padding: 8px 34px;
+  font-size: 20px;
+}
+
+.advice_for_tutor_block {
+  width: 760px;
+  margin: 0 auto 120px;
+  text-align: center;
+  box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.08);
+  padding: 40px 60px;
+
+  .all-cards {
+    width: 73%;
+    margin: 0 auto;
+  }
+
+  .advice_for_tutor {
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 57px;
+    margin-bottom: 20px;
+  }
+
+  .modal_placeholder_input {
+    margin-bottom: 68px;
+    outline: 0;
+  }
+
+  .tips-header {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .show_request .help_request_data {
+
+    .price {
+      margin-top: 30px;
+    }
+
+    .help_request_inputs .form_field .field_input {
+      min-width: 400px;
+    }
+  }
+
+  .help_request_data .help_request_inputs .help_request_form_field {
+    .field_input_description,
+    .select,
+    .attachment_field_description {
+      min-width: 400px;
+    }
+
+    .attachment_field_description .attachment_field_content {
+      width: 267px;
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .show_request {
+    .help_request_data {
+      .help_request_inputs .form_field .field_input,
+      .select {
+        min-width: 442px;
+      }
+
+      .price p {
+        text-align: center;
+      }
+    }
+  }
+
+  .help_request_data .help_request_inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .help_request_form_field {
+      .select {
+        min-width: 442px;
+      }
+
+      .field_input_description {
+        padding: 20px;
+        min-width: 435px;
+      }
+    }  
+  }
+
+  .help_request_data .help_request_photo {
+    .photo_title {
+      padding-left: 0;
+      max-width: 400px;
+      width: 300px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .photo_title--with_padding {
+      text-align: center;
+      color: gray;
+      font-size: 14px;
+      padding-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .help_request_data .help_request_photo .photo_file {
+    margin: 10px 0;
+  }
+
+  .show_request {
+
+    .request_headline_img,
+    .container_user {
+      padding: 0 15px;
+    }
+
+    .actions {
+      text-align: center;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .show_request {
+
+    .container_user {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .user_info {
+        margin-left: 0;
+
+        p {
+          font-size: 24px;
+          margin-bottom: -16px;
+        }
+      } 
+    }
+
+    .help_request_data {
+      margin-bottom: 50px;
+      
+      .photo_title {
+      padding-left: 0;
+      max-width: 400px;
+      width: 300px;
+      text-align: center;
+      }
+
+      .help_request_photo .photo_file .photo_file_picture {
+        width: 300px;
+        height: 283px;
+        margin: 0 auto;
+      }
+
+      .help_request_inputs {
+        margin: 0;
+
+        .form_field .field_input,
+        .select {
+          padding: 20px;
+          min-width: 300px;
+        }
+      }
+    }
+  }
+
+  .help_request_data .help_request_inputs .help_request_form_field {
+    .select {
+      padding: 15px;
+      min-width: 300px;
+    }
+
+    .field_input_description {
+      min-width: 300px;
+    }
+
+    .attachment_field_description {
+      min-width: 300px;
+
+      .attachment_field_content {
+        width: 204px;
+      }
+    }
+  } 
+}
+

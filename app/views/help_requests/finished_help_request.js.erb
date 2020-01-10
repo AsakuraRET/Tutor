@@ -1,0 +1,19 @@
+document.getElementById("modal_placeholder").innerHTML = "<%= escape_javascript(render 'choose_cards_and_pay') %>";
+
+// hidden block with adding card
+const btnForAddingCard = document.querySelector('#toggle_cards');
+const hiddenCardBlock= document.querySelector('.modal-payment-block');
+
+btnForAddingCard.addEventListener("click", function() {
+  hiddenCardBlock.style.display = (hiddenCardBlock.style.display == 'block') ? '' : 'block'
+  const scrollModal = document.querySelector(".modal-content");
+  if (scrollModal) {
+    scrollModal.scrollTo(0, scrollModal.scrollHeight);
+  }
+});
+
+const showMessage = new Event('cardModalOpen');
+document.dispatchEvent(showMessage);
+
+const cards = new Event('disable');
+document.dispatchEvent(cards);

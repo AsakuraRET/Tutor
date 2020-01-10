@@ -1,0 +1,223 @@
+.list {
+  box-shadow: 0 8px 20px rgba(165, 185, 201, 0.3);
+  border-radius: 10px;
+  margin: 20px auto 50px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+
+  .head_list {
+    background: #EBFDFF;
+    text-align: justify;
+  }
+
+  &--table_for_chats {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px;
+
+    tbody tr td:first-child {
+      color: #279D59;
+      text-align: center;
+      word-break: break-all;
+      width: 30%;
+      padding: 10px;
+    }
+  }
+
+  .column {
+    padding: 20px 45px;
+    border-bottom: 1px solid rgba(155, 246, 255, 0.2);
+    max-width: 500px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.first {
+      color: #5343C6;
+    }
+
+    &.last {
+      color: #279D59;
+    }
+
+    a {
+      color: #29344C;
+      text-decoration: none;
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
+
+    a:hover {
+      color: #5343C6;
+    }
+
+    &.offer_state {
+      color: #5343C6;
+
+      &--red {
+        color: #ff0000;
+      }
+
+      &--tips {
+        color: #279D59;
+      }
+    }
+
+    &--link_for_chats {
+      padding: 20px 15px;
+      text-align: center;
+    }
+
+    &--admin {
+      padding: 10px 20px;
+    }
+  }
+
+  .colum_chat_only {
+    border-bottom: none;
+  }
+}
+
+.list_phone {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .list {
+    min-width: 90%;
+    font-size: 14px;
+
+    &--table_for_chats {
+      width: 90%;
+    }
+
+    .head-list {
+      min-width: 100%;
+    }
+
+    .column {
+      padding: 15px;
+      max-width: 670px;
+    }
+
+    .column_problem a {
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .head_list {
+    display: none;
+  }
+
+  .list {
+    text-align: right;
+
+    .row {
+      display: block;
+      border-bottom: 3px solid #ddd;
+    }
+
+    .column {
+      display: block;
+      font-size: 13px;
+      border-bottom: 1px dotted #ccc;
+      padding: 10px;
+    }
+
+    .colum_chat_only {
+      border: none;
+    }
+
+    .column_problem a {
+      float: left;
+      white-space: pre-wrap;
+      margin-top: 10px;
+      word-wrap: break-word;
+      text-align: left;
+      width: 100%;
+    }
+
+    .column_problem {
+      text-align: left;
+      background-color: #faebd7;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+    }
+
+    td:before {
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #29344C;
+      padding: 0 10px 0 0;
+    }
+  }
+
+  #list_of_help_requests {
+    width: 100%;
+
+    .list .column_problem {
+      min-width: 300px;
+      max-width: 767px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+
+      a {
+        margin-top: 0;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  body {
+    .headlines {
+      margin: 100px auto 50px;
+    }
+
+    .headlines_student_account {
+      margin: 50px auto;
+
+      .current_requests_account_inner_chapter {
+        display: block;
+        color: gray;
+        font-size: 20px;
+      }
+    }
+
+    .list--table_for_chats {
+      font-size: 16px;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      tbody tr td:first-child {
+        padding: 0;
+      }
+
+      tbody tr td:last-child {
+        max-width: 270px;
+
+        a {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

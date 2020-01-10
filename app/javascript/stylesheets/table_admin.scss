@@ -1,0 +1,27 @@
+.admin-list {
+  counter-reset: rowNumber;
+
+  tbody tr {
+    counter-increment: rowNumber;
+  }
+
+  tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+  }
+}
+
+.for_myClass {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.for_img {
+  background-color:  #E5E5E5;
+  padding: 7px;
+}

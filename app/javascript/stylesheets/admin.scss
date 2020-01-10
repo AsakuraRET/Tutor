@@ -1,0 +1,56 @@
+.main_profile {
+  display: flex;
+  flex-direction: row;
+
+  .users_name {
+    position: fixed;
+    top: 70px;
+    font-size: 38px;
+    font-weight: bold;
+    color: #29344C;
+    padding: 0px 20px;
+  }
+
+  .profile {
+
+    .headlines {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 100px auto 20px;
+    }
+
+     .profile_photo {
+        margin: 0 0 30px;
+     }
+  }
+
+  .admin_list_users {
+    box-shadow: 0px 3px 12px 2px rgba(0, 0, 0, 0.08);
+    font-size: 18px;
+    padding: 20px;
+    margin: 128px 30px 0 0;
+    min-width: 225px;
+    max-width: 350px;
+    overflow-y: auto;
+    height: 41em;
+
+    .all_list_users {
+      list-style-type: none;
+
+      li {
+        padding-bottom: 15px;
+
+        a {
+          font-size: 22px;
+          color: #29344C;
+          text-decoration: none;
+
+          &:hover {
+            color: #5343C6;
+          }
+        }
+      }
+    }
+  }
+}

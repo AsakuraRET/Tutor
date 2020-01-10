@@ -1,0 +1,13 @@
+<section class="headlines"> 
+  <h1>Your chats</h1>
+</section>
+<table class="list list--table_for_chats">
+  <tbody>
+    <% @chats.each do |chat| %>
+      <tr>
+        <td><%= chat.intercolutor(current_user.type).first_name %></td>
+        <td class="column column--link_for_chats colum_chat_only"><%= link_to chat.intercolutor(current_user.type).email, chat %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

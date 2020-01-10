@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @offer.student_id %>
+</p>
+
+<p>
+  <strong>Old price:</strong>
+  <%= @offer.old_price %>
+</p>
+
+<p>
+  <strong>New price:</strong>
+  <%= @offer.new_price %>
+</p>
+
+<p>
+  <strong>Help request:</strong>
+  <%= @offer.help_request_id %>
+</p>
+
+<p>
+  <strong>Tutor:</strong>
+  <%= @offer.tutor_id %>
+</p>
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>

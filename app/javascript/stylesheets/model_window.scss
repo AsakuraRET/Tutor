@@ -1,0 +1,215 @@
+.accept-offer-modal-window {
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0 ,0 ,0 ,0.7);
+  align-items: center;
+
+  &--accepted {
+    padding: 0 40px;
+  }
+
+  &--payment {
+    padding: 10px;
+  }
+
+  .modal-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1170px;
+    height: 724px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow-y: auto;
+
+    &--accepted {
+      padding: 30px;
+      height: auto;
+    }
+
+    &--finish-payment {
+        padding: 40px;
+        position: relative;
+    }
+
+    .modal-payment-block {
+      display: none;
+    }
+
+    .modal-image {
+      margin: 40px 0;
+    }
+
+    .modal-header {
+      font-size: 80px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+
+    .modal-body {
+      font-size: 38px;
+      font-weight: bold;
+      width: 64%;
+      text-align: center;
+      line-height: 57px;
+      margin-bottom: 30px;
+
+      .name {
+        color: #1C7C45;
+      }
+    }
+
+  }
+}
+.payment_success {
+  display: block;
+  text-align: center;
+  color: #228b22;
+  margin-bottom: 30px;
+}
+
+.card-wrapper {
+  display: block;
+  color: #000;
+  text-decoration: none;
+  transition: all .2s ease-in;
+
+  &:hover {
+    background-color: #f9e4bb;
+  }
+}
+
+.disabled_buttons {
+  pointer-events: none;
+  opacity: .4;
+}
+
+@media all and (max-width: 963px) {
+  .accept-offer-modal-window .modal-content {
+    .modal-header {
+      &--accepted {
+        font-size: 60px;
+      }
+    }
+    .modal-body {
+      &--accepted {
+        font-size: 27px;
+        line-height: 39px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .accept-offer-modal-window .modal-content {
+
+    &--finish-payment {
+      overflow-y: auto;
+    }
+
+    .modal-body {
+      font-size: 30px;
+      width: 100%;
+    }
+
+    .modal_payment_block_adaptive {
+      max-width: 760px;
+      width: 100%;
+
+      .adaptive_data_reg {
+        width: 85%;
+        margin: 20px auto;
+      }
+
+      .adaptive_both_block_payment {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .main_information .information.card_information {
+    padding: 10px;
+    min-width: 400px;
+  }
+}
+
+@media all and (max-width: 757px) {
+  .accept-offer-modal-window .modal-content {
+    .modal-header {
+      &--accepted {
+        font-size: 40px;
+      }
+    }
+  }
+}
+
+
+@media all and (max-width: 670px) {
+  .accept_tutor_button {
+    font-size: 14px;
+    padding: 2px 14px;
+  }
+  .accept-offer-modal-window .modal-content {
+    .modal-header--accepted {
+      font-size: 20px;
+    }
+    .modal-image--accepted {
+      width: 40%;
+    }
+    .common_button--accepted {
+      width: 50%;
+      margin: 0;
+    }
+  }
+}
+
+@media all and (max-width: 520px) {
+  .accept-offer-modal-window .modal-content {
+    .modal-body--accepted {
+      font-size: 16px;
+      line-height: 27px;
+    }
+    &--accepted {
+      padding: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+
+  .main_information .information {
+    .card_information {
+      min-width: 300px;
+    }
+
+    .delete_trash tr th:last-child {
+      word-wrap: normal;
+      white-space: normal;
+    }
+  }
+
+  .main_information .information.card_information {
+    min-width: 300px;
+  }
+}
+
+@media all and (max-width: 390px) {
+  .accept-offer-modal-window .modal-content {
+    .modal-header--accepted {
+      font-size: 20px;
+    }
+    .modal-body--accepted {
+      font-size: 14px;
+    }
+  }
+}

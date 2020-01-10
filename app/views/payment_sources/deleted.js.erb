@@ -1,0 +1,11 @@
+<% if @error_destroy %>
+  document.getElementById('cards_errors').innerHTML = '<%= @error_destroy %>';
+  document.getElementById('cards_errors').style.display = 'block';
+<% else %>
+  document.getElementById('payment_card_<%= @payment_source.id %>').remove(true);
+  document.getElementById('cards_errors').style.display = 'none';
+  if (document.getElementsByClassName('card_information').length === 0) {
+    document.getElementById('card_form').style.display = 'none';
+    document.querySelector('.headlines--for_your_card').style.display = 'none';
+  }
+<% end %>

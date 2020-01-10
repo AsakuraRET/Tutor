@@ -1,0 +1,72 @@
+<div class="main_profile">
+  <p class="users_name">Names</p>
+  <div class="admin_list_users">
+    <ul class="all_list_users">
+      <% @users.each do |user| %>
+        <li>
+          <%= link_to admin_user_path(id: user.id) do %>
+            <%= user.first_name %> <%= user.last_name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <main class="profile">
+    <section class="headlines">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    </section>
+    <p class="profile_status"><%= @user.type %></p>
+    <section class="profile_photo">
+      <img class="user_logo" src= <%= asset_pack_path 'media/images/photo.svg' %> />
+    </section>
+    <section class="main_information main_information_tutor">
+      <table class="information">
+        <thead>
+          <tr>
+            <th class="space_for_tittle" colspan="2">
+              <span class="tittle_table"> Information </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Name:</th>
+            <th><%= @user.first_name %></th>
+          </tr>
+          <tr>
+            <th>Last name:</th>
+            <th><%= @user.last_name %></th>
+          </tr>
+          <tr>
+            <th>Username:</th>
+            <th><%= @user.user_name %></th>
+          </tr>
+          <tr>
+            <th>Age:</th>
+            <th><%= @user.age %></th>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <th><%= @user.email %></th>
+          </tr>
+          <tr>
+            <th>Address:</th>
+            <th><%= @user.address %></th>
+          </tr>
+          <tr>
+            <th>Zip Code:</th>
+            <th><%= @user.zip_code %></th>
+          </tr>
+          <tr>
+            <th>School:</th>
+            <th><%= @user.school %></th>
+          </tr>
+          <tr>
+            <th>Major:</th>
+            <th><%= @user.major %></th>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>

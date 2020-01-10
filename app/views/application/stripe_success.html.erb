@@ -1,0 +1,8 @@
+<div class="shadow shadow--for_payment">
+  <% if @stripe_login_successful %>
+    <p class="for_join">Thank you for connecting to our team on TutorU's stripe!</p>
+  <% else %>
+    <p class="for_join">Oops! Something goes wrong! Please try again later</p>
+  <% end %>
+  <%= link_to "Current requests", current_request_path, class:"common_button common_button-stripe-success" %>
+</div>

@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900|Montserrat&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Maven Pro", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(../images/background_gradient_left.svg), url(../images/background_gradient_right.svg);
+  background-repeat: no-repeat;
+  background-position: left top,right bottom;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+  font-family: "Maven Pro", sans-serif;
+  color: #29344C;
+  font-size: 20px;
+  font-weight: bold;
+  overflow: auto !important;
+  background-color: #fff!important;
+  position: relative;
+}
+
+header {
+  display: flex;
+  padding: 30px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.logo {
+  min-width: 153px;
+  width: 16%;
+}
+
+.logo a {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+
+a.active,
+a:hover {
+  color: #5343C6;
+}
+
+nav ul {
+  text-align: center;
+  font-size: 0;
+}
+
+nav {
+  flex: 1;
+  margin-right: 16%;
+}
+
+nav li {
+  display: inline-block;
+  font-size: 20px;
+}
+
+nav li a {
+  display: inline-block;
+  padding: 0 30px;
+  font-family: "Maven Pro", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  color: #29344C;
+}
+
+.landing {
+  background-image: url(../images/landing_back.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left bottom;
+}
+
+.main_page_container {
+  flex: 1;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  min-width: 70%;
+}
+
+.main_headline {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 69px;
+  letter-spacing: 3px;
+  line-height: 90px;
+  color: #29344C;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+.additional_style_headline {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.additional_symbol {
+  font-size: 70px;
+  font-weight: 900;
+  color: #289d59;
+}
+
+.additional_text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  width: 100%;
+  max-width: 520px;
+  color: #425479;
+  margin-bottom: 5%;
+}
+
+.steps_account {
+  margin-bottom: 35px;
+}
+
+.step_item {
+  display: inline-block;
+  width: 162px;
+  text-align: center;
+  margin-right: 96px;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  h3:hover {
+    color: #5342c6;
+  }
+
+  a {
+    display: inline-block;
+    font-family: "Maven Pro", sans-serif;
+    font-size: 22px;
+    padding-top: 120px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    color: #29344C;
+    text-decoration: none;
+
+    &.create_account {
+      background-image: url(../images/icon_apple.svg);
+    }
+
+    &.sing_in {
+      background-image: url(../images/icon_books.svg);
+    }
+
+    &.new_tutor {
+      background-image: url(../images/icon_bottle.svg);
+    }
+  }
+
+  p {
+   line-height: 24px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+   color: #425479;
+ }
+}
+
+.step_item:last-child {
+  margin-right: 0;
+}
+
+.common_button {
+  display: inline-block;
+  margin: 0 auto 60px;
+  background: linear-gradient(90deg, #FFB900 0%, #FF7E67 56.49%, #FF4970 117.08%);
+  border-radius: 200px;
+  border: #FFFFFF;
+  padding: 13px 87px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: #5343C6;
+  }
+
+  &--hidden {
+    margin-top: 30px;
+  }
+}
+
+.button-close-modal {
+  position: absolute;
+  right: 3%;
+  top: 4%;
+
+  .close-container {
+    position: relative;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+  }
+
+  .left-line {
+    height: 4px;
+    width: 50px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #F4A259;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all .3s ease-in;
+  }
+
+  .right-line {
+    height: 4px;
+    width: 50px;
+    position: absolute;
+    margin-top: 24px;
+    background-color: #F4A259;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in;
+  }
+
+  label {
+    color: #000;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: .6em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all .3s ease-in;
+    opacity: 0;
+  }
+
+  .close {
+    margin: 60px 0 0 0;
+    position: absolute;
+  }
+
+  .close-container:hover .left-line {
+    transform: rotate(-45deg);
+    background-color: #F25C66;
+  }
+
+  .close-container:hover .right-line {
+    transform: rotate(45deg);
+    background-color: #F25C66;
+  }
+
+  .close-container:hover label {
+    opacity: 1;
+  }
+}
+
+.common_button-stripe-success {
+  margin: 0;
+
+  &--for_admin {
+    margin: 0px;
+    border-radius: 0px;
+  }
+}
+
+.red {
+  color: red;
+}
+
+.phone-menu {
+  position: absolute;
+  top: 0px;
+  left: -200%;
+  transition: all 1s ease-in-out;
+
+  .list-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    overflow: auto;
+  }
+}
+
+.burger-menu {
+  display: none;
+  width: 30px;
+  height: 15px;
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  cursor: pointer;
+  padding: 15px 0px;
+  transition: all 1s ease-in-out;
+
+  span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 5px;
+      background-color: #000;
+      position: absolute;
+      top: 11px;
+    }
+
+    &::after {
+      bottom: 13px;
+      top: -10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  nav {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  header {
+
+    .logo {
+      margin: 0px 20px;
+    }
+  }
+
+  nav {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+    z-index: 100;
+  }
+
+  .phone-menu {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
+    ul {
+      padding: 0 20px;
+
+      li {
+        list-style-type: none;
+        padding: 20px 0;
+
+        a {
+          text-decoration: none;
+          font-size: 40px;
+          color: rgba(0, 0, 0, .5);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main_headline {
+    font-size: 41px;
+    line-height: 40px;
+    margin: 95px 0 30px;
+    text-align: center;
+
+    .additional_symbol {
+      font-size: 41px;
+    }
+  }
+
+  .additional_text {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .steps_account {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    align-items: center;
+
+    .step_item {
+      margin: 0 auto 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 459px) {
+  .wrapper {
+    min-height: 100%;
+  }
+
+  .main_headline {
+    font-size: 40px;
+    line-height: 55px;
+
+    .additional_symbol {
+      font-size: 40px;
+    }
+  }
+}
+
+.phone-menu-active {
+  top: 0;
+  left: 0;
+  background: #e3f7f9;
+  z-index: 100;
+}
+
+.burger-menu-active {
+
+  span {
+    background: inherit;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        top: 0;
+        transform: rotate(-45deg);
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .common_button {
+    margin: 0px auto 30px;
+    padding: 10px 56px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .container_find_button {
+    order: 0;
+  }  
+
+  .common_button {
+    margin: 0 auto 30px;
+    padding: 8px 45px;
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .show_request .request_headline_img a img {
+    width: 50px;
+  }
+}

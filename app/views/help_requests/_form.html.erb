@@ -1,0 +1,49 @@
+<%= form_with(model: help_request, local: true) do |form| %>
+  <div id="payment_form_first_block">
+    <div class="help_request_data">
+      <div class="help_request_photo">
+        <p class="photo_title">Add a Screenshot Your Problem</p>
+        <p class="photo_title--with_padding">(Optional)</p>
+        <div id="photo_file" class="photo_file">
+          <div class="photo_file_picture" id="photo_file_picture"></div>
+          <%= form.file_field :problem_picture, class:'photo_input', accept:"image/*"%>
+        </div>
+        <img id="output"/>
+      </div>
+      <div class="help_request_inputs">
+        <div class="help_request_form_field">
+          <%= form.label :subject_id, class:"field_title"%>
+          <%= form.select :subject_id, options_for_select(Subject.all.pluck(:name, :id), selected: form.object.subject), {},  class: "field_input select" %>
+        </div>
+        <div class="help_request_form_field">
+          <%= form.label :description, class: "field_title"%>
+          <%= form.text_area :description, class: "field_input_description field_input", placeholder: "Description"%>
+        </div>
+        <div class="help_request_form_field">
+          <p class="field_title add_mergen_field_title">
+            Attach Your Files
+          </p>
+          <div class="attachment_field_description">
+            <button class="attachment_button" disabled="disabled">+</button>
+            <div class="attachment_field_content">
+              <p class="attachment_field_title">
+                Drag files here or browse
+              </p>
+              <p>
+                Supported file types: PDF, DOC, DOCX, JPEG, JPG, TIFF, BMP, XLS and XLSX
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="help_request_next_part">
+          <button type="button" id="show_payment_section_button" class="common_button">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="payment_form_second_block" class="payment_form_second_block hidden_form">
+    <%= form.label :price, class:"second_block_title"%>
+    <%= form.number_field :price, placeholder:"$", class:"field_input validate_number set_price_for_help_request"%>
+    <%= form.submit 'Finish Tutor Request', class: 'common_button request_price_button'%>
+  </div>
+<% end %>

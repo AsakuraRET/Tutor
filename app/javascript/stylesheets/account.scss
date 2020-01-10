@@ -1,0 +1,162 @@
+.profile {
+  margin: 0 auto 50px;
+
+  .profile_status {
+    margin: 0 0 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 21px;
+  }
+
+  .create_payment_button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.profile_photo {
+  text-align: center;
+
+  .user_logo {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.social_networks {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  width: 60%;
+
+  .social_links_img {
+    width: 40px;
+  }
+
+  .social_links {
+    text-decoration: none;
+  }
+}
+
+.main_information {
+  -webkit-box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+  -moz-box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+  box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+  font-size: 18px;
+  padding: 40px;
+  max-width: 460px;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  &.card_form {
+    display: block;
+    box-shadow: none;
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+
+  .information {
+    text-align: left;
+    box-sizing: content-box;
+
+    &.card_information {
+      margin: 0 auto;
+      text-align: left;
+      min-width: 468px;
+      padding: 40px;
+      -webkit-box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+      -moz-box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 12px 2px rgba(0,0,0,0.08);
+    }
+
+    tbody tr th:last-child {
+      color: #5343C6;
+      padding-left: 100px;
+      max-width: 300px;
+    }
+
+    .delete_trash tr th:last-child {
+      padding-left: 0;
+    }
+
+    .card-trash-can {
+      display: block;
+      transition: all .2s ease-in-out;
+      &:hover {
+        transform: scale(1.2);
+      }
+      &:active {
+        transform: scale(1.1);
+      }
+    }
+
+    .tittle_table {
+      font-size: 28px;
+    }
+
+    .space_for_tittle {
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    tbody tr th {
+      padding-top: 5px;
+
+      .delete_card_img {
+        margin: 15px 0;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile .headlines {
+      margin: 100px auto 50px;
+      max-width: 760px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .profile .headlines {
+    &--for_your_card {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  .main_information .information tbody tr th:last-child {
+    padding-left: 20px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 207px;
+  }
+
+  .main_information,
+  .card_form {
+    padding: 40px 10px;
+    font-size: 14px;
+    width: 100%;
+    margin: 0 auto 30px;
+
+    .information.card_information {
+      min-width: 100%;
+      padding: 10px 0 10px 10px;
+    }
+  }
+
+  .common_button {
+    margin: 0 auto 30px;
+    padding: 13px 20px;
+    font-size: 22px;
+  }
+
+  .log_out_settings {
+    width: 90%;
+    text-align: center;
+  }
+}

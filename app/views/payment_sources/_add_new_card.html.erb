@@ -1,0 +1,37 @@
+<form action="/charge" method="post" id="payment-form" class="my-form">
+  <div class="form-row">
+    <h2 class="head_form payment_head">Payment</h2>
+    <div class="data_reg payment_data_reg adaptive_data_reg">
+      <div class="text_reg">
+        <label>Card Number</label>
+      </div>
+      <div class="input">
+        <div id="cardNumber" class="cardNumber"></div>
+      </div>
+    </div>
+    <div class="both_block_payment adaptive_both_block_payment">
+      <div class="data_reg payment_data_reg adaptive_data_reg">
+        <div class="text_reg">
+          <label class="text_reg_label">CVC Number
+            <span class="tooltip" data-title="The CVC code is located on the back of your credit/debit card on the right side of the white signature strip; it is always the last 3 digits in case of VISA and MasterCard.">
+              <img class="question_mark" src=" <%= asset_pack_path 'media/images/question_mark.svg'%> ">
+            </span>
+          </label>
+        </div>
+        <div class="input">
+          <div id="cardCvc" class="cardCvc"></div>
+        </div>
+      </div>
+      <div class="data_reg payment_data_reg adaptive_data_reg one_data_reg_element">
+        <div class="text_reg">
+          <label>Expiration Date</label>
+        </div>
+        <div class="input">
+          <div id="cardExpiry" class="cardExpiry"></div>
+        </div>
+      </div>
+    </div>
+    <div id="payment_errors" role="alert"></div>
+  </div>
+  <button class="go_reg payment_buttom">Next</button>
+</form>

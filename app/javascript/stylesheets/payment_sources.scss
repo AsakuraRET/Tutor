@@ -1,0 +1,177 @@
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+
+.payment_block {
+  margin: 0 auto;
+  padding-bottom: 40px;
+  position: relative;
+
+  .close_model_window_paument {
+    height: 26px;
+    width: 30px;
+    border: none;
+    background: none;
+    text-align: start;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+
+    .crose_first_line,
+    .crose_second_line {
+      width: 30px;
+      height: 4px;
+      background: black;
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    .crose_second_line {
+      transform: rotate(315deg);
+    }
+  }
+
+  .payment_head {
+    margin-bottom: 40px;
+  }
+
+  .payment_data_reg {
+    width: 85%;
+    margin: 20px auto;
+
+    .cardNumber, .cardCvc, .cardExpiry {
+      outline: none;
+      border: solid blue 2px;
+      border-color: rgba(192, 192, 192, 0.1);
+      background: rgba(155, 246, 255, 0.2);
+      border-radius: 100px;
+      font-size: 20px;
+      align-items: center;
+      color: #5343C6;
+      padding: 20px 27px 35px 27px;
+    }
+
+    .cardNumber {
+      width: 32em;
+    }
+  }
+
+  .both_block_payment {
+    .payment_data_reg {
+      width: 41%;
+      display: inline-block;
+      margin-right: 20px;
+
+      .text_reg {
+        .text_reg_label {
+          position: relative;
+
+          .question_mark {
+            position: absolute;
+            top: -16px;
+            right: -25px;
+          }
+        }
+      }
+    }
+
+    .payment_data_reg:nth-child(2) {
+      margin-right: 0;
+    }
+  }
+
+  .payment_buttom {
+    margin-top: 30px;
+  }
+
+  #payment_errors {
+    margin-top: 20px;
+  }
+}
+.payment_errors {
+  color: #ff0000;
+  display: block;
+  text-align: center;
+
+  &--delete_card_error {
+    margin-bottom: 25px;
+    display: none;
+  }
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.tooltip:hover:before {
+  content: attr(data-title);
+  white-space: pre-wrap;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  z-index: 9999;
+  width: 230px;
+  font-size: 13px;
+  color: #29344C;
+  text-align: left;
+  font-weight: normal;
+  margin-left: -105px;
+  padding: 10px;
+  border: 1px solid rgba(155, 246, 255, 1);
+  border-radius: 20px;
+  background-color: rgba(155, 246, 255, 1);
+}
+
+.tooltip:hover:after {
+  content: "";
+  position: absolute;
+  z-index: 10000;
+  bottom: 21px;
+  margin-left: 4px;
+  border-top: 10px solid rgba(155, 246, 255, 1);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 0;
+}
+
+@media all and (max-width: 780px) {
+  .payment_block .payment_data_reg .cardNumber {
+    width: 100%;
+  }
+
+  .payment_block .both_block_payment .one_data_reg_element:nth-child(2) {
+    margin: 20px auto;
+  }
+}

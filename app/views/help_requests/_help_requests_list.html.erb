@@ -1,0 +1,24 @@
+<table class="list" cellspaceing="0">
+  <thead class="head_list">
+    <tr>
+      <th class="column">Subject</th>
+      <th class="column">Problem</th>
+      <th class="column">Date</th>
+      <th class="column">Price</th>
+      <th class="column">State</th>
+    </tr>
+  </thead>
+  <% @help_requests.each do |help_request| %>
+    <tr class="row">
+      <td data-label="Subject" class="column first"><%= help_request.subject.name %></td>
+      <td data-label="Problem" class="column column_problem">
+        <%= link_to help_request.description, help_request_path(help_request), class:"link_for_column_problem" %>
+      </td>
+      <td data-label="Date" class="column"><%= help_request.created_at.strftime("%d %b, %Y") %></td>
+      <td data-label="Price" class="column last"><span>$<%= help_request.help_request_price_or_offer_price %></span></td>
+      <td data-label="State" class="column offer_state <%= red_if_request_finished(help_request.state) %>">
+        <%= help_request.state.capitalize.tr('_', ' ') %>
+      </td>
+    </tr>
+  <% end %>
+</table>

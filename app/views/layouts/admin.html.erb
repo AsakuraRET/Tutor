@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutoru</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_pack_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <%= render "layouts/admin_navbar" %>
+    </header>
+    <%= yield %>
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>

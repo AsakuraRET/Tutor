@@ -1,0 +1,42 @@
+<%= form_with(model: payment_source, local: true) do |form| %>
+  <% if payment_source.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(payment_source.errors.count, "error") %> prohibited this payment_source from being saved:</h2>
+
+      <ul>
+      <% payment_source.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :last_4 %>
+    <%= form.text_field :last_4 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cvc %>
+    <%= form.text_field :cvc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exp_year %>
+    <%= form.text_field :exp_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exp_month %>
+    <%= form.text_field :exp_month %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_id %>
+    <%= form.number_field :student_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

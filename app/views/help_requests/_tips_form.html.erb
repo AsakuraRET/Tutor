@@ -1,0 +1,16 @@
+<%= form_with(model: [:tips, @help_request], local: true) do |form| %>
+  <div class="advice_for_tutor_block">
+    <p class="advice_for_tutor">Would You Like to Make Tip for Tutor’s Job?</p>
+    <%= form.number_field :tips, placeholder: "$", class: 'field_input modal_placeholder_input validate_number' %>
+    <h2 class="tips-header">Choose your card & Pay</h2>
+    <span class="payment_errors"></span>
+    <span class="payment_success"></span>
+    <section class="all-cards">
+      <% current_user.payment_sources.each do |payment_source| %>
+        <%= link_to(tips_help_request_path(stripe_id: payment_source.stripe_id, customer: current_user.stripe_id), {class: 'card-wrapper', method: :put, remote: true}) do %>
+          <%= render partial: "application/students_cards", locals: {payment_source: payment_source} %>
+        <% end %>
+      <% end %>
+    </section>
+  </div>
+<% end %>

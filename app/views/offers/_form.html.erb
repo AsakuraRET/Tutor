@@ -1,0 +1,40 @@
+<%= form_with(model: offer, local: true) do |form| %>
+<% if offer.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(offer.errors.count, "error") %>
+      prohibited this offer from being saved:</h2>
+
+    <ul>
+      <% offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="payment_form_second_block">
+  <div class="help_request_form_field old_price_input">
+    <label class="offer_field_title">
+      Price
+    </label>
+    <input type="text" readonly="readonly" id="old_price_offer" placeholder="$" class="field_input" value=<%= @help_request.price %>>
+  </div>
+
+  <div class="help_request_form_field">
+    <%= form.label :new_price, class:"offer_field_title"%>
+    <%= form.text_field :new_price, placeholder:"$", class:"field_input", id:"new_price_offer" %>
+  </div>
+
+  <div class="help_request_form_field">
+    <label class="offer_field_title">
+      Counter offer
+    </label>
+    <input type="number" readonly="readonly" placeholder="$" class="field_input" id="counter_price_offer">
+  </div>
+
+  <%= form.hidden_field :help_request_id, value: @help_request.id %>
+  <%= form.hidden_field :tutor_id, value: current_user.id %>
+
+  <%= form.submit class:"common_button submit_counter_button"%>
+<% end %>
+</div>
